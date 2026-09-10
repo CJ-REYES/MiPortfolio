@@ -26,7 +26,7 @@ const catalogItems: CatalogItem[] = [
     description: "Estudio creativo digital minimalista con interacciones de tarjetas 3D flotantes, tipografía editorial y selector de planes interactivo.",
     image: "/ViktorOddy.png",
     videoUrl: "/ViktorOddy.mp4",
-    githubUrl: "https://github.com/CJ-REYES"
+    githubUrl: "https://github.com/CJ-REYES/ViktorOddy"
   },
   {
     id: "prod-02",
@@ -63,14 +63,14 @@ const catalogItems: CatalogItem[] = [
   },
   {
     id: "prod-05",
-    title: "EcoPulse API",
-    category: "backend",
-    categoryLabel: "Backend API",
-    price: "Repositorio",
-    description: "API orientada al monitoreo y procesamiento de datos ambientales, desarrollada con arquitecturas limpias y endpoints seguros.",
-    image: "/VANGUARD.png",
-    videoUrl: "/VANGUARD.mp4",
-    githubUrl: "https://github.com/MAR10MM04/EcoPulse.Api"
+    title: "Timeless Wonders",
+    category: "frontend",
+    categoryLabel: "Landing Page",
+    price: "Diseño Web",
+    description: "Experiencia web inmersiva para museo de historia natural con exploración de fósiles, esquemas osteológicos interactivos, tipografía editorial y diseño científico minimalista.",
+    image: "/TIMELESS-WONDERS.png",
+    videoUrl: "/TIMELESS-WONDERS-WEB.mp4",
+    githubUrl: "https://github.com/CJ-REYES/TIMELESS-WONDERS"
   },
   {
     id: "prod-06",
