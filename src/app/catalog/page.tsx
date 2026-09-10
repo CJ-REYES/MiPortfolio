@@ -50,19 +50,8 @@ const catalogItems: CatalogItem[] = [
     videoUrl: "/Veldara3D.mp4",
     githubUrl: "https://github.com/CJ-REYES/Veldara3D"
   },
-  {
+    {
     id: "prod-04",
-    title: "CitizenReport SaaS",
-    category: "saas",
-    categoryLabel: "Smart City SaaS",
-    price: "Repositorio",
-    description: "Plataforma Smart City con algoritmo de triage inteligente, app móvil en React Native, REST API en .NET 8 y base de datos geoespacial MySQL para incidentes municipales.",
-    image: "/ViktorOddy.png",
-    videoUrl: "/ViktorOddy.mp4",
-    githubUrl: "https://github.com/CJ-REYES/CitizenReport"
-  },
-  {
-    id: "prod-05",
     title: "Timeless Wonders",
     category: "frontend",
     categoryLabel: "Landing Page",
@@ -73,15 +62,27 @@ const catalogItems: CatalogItem[] = [
     githubUrl: "https://github.com/CJ-REYES/TIMELESS-WONDERS"
   },
   {
+    id: "prod-05",
+    title: "CitizenReport SaaS",
+    category: "saas",
+    categoryLabel: "Smart City SaaS",
+    price: "Repositorio",
+    description: "Plataforma Smart City con algoritmo de triage inteligente, app móvil en React Native, REST API en .NET 8 y base de datos geoespacial MySQL para incidentes municipales.",
+    image: "/ViktorOddy.png",
+    videoUrl: "/ViktorOddy.mp4",
+    githubUrl: "https://github.com/CJ-REYES/CitizenReport"
+  },
+
+  {
     id: "prod-06",
     title: "AppDelivery",
     category: "fullstack",
     categoryLabel: "Full Stack MVP",
     price: "Repositorio",
     description: "Plataforma web full stack de delivery que centraliza los flujos de 3 perfiles (cliente, comercio y repartidor) con React, TypeScript, ASP.NET Core, MariaDB, JWT y SignalR.",
-    image: "/Veldara3D.png",
-    videoUrl: "/Veldara3D.mp4",
-    githubUrl: "https://github.com/CJ-REYES"
+    image: "/AppDelivery.png",
+    videoUrl: "/AppDelivery.mp4",
+    githubUrl: "https://github.com/CJ-REYES/AppDelivery"
   }
 ];
 
