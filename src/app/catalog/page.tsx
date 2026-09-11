@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { ExternalLink, Code2, X, Play } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
@@ -25,7 +25,7 @@ const catalogItems: CatalogItem[] = [
     price: "Diseño Web",
     description: "Estudio creativo digital minimalista con interacciones de tarjetas 3D flotantes, tipografía editorial y selector de planes interactivo.",
     image: "/ViktorOddy.png",
-    videoUrl: "/ViktorOddy.mp4",
+    videoUrl: "https://archive.org/download/app-delivery/ViktorOddy.mp4",
     githubUrl: "https://github.com/CJ-REYES/ViktorOddy"
   },
   {
@@ -36,7 +36,7 @@ const catalogItems: CatalogItem[] = [
     price: "Diseño Web",
     description: "Colectivo digital de alta gama con estética oscura y roja, inmersiones de personajes 3D de alta calidad y navegación de estudio.",
     image: "/VANGUARD.png",
-    videoUrl: "/VANGUARD.mp4",
+    videoUrl: "https://archive.org/download/app-delivery/VANGUARD.mp4",
     githubUrl: "https://github.com/CJ-REYES/VanguardAgency"
   },
   {
@@ -47,10 +47,10 @@ const catalogItems: CatalogItem[] = [
     price: "Diseño Web",
     description: "Experiencia web inmersiva en Three.js con universos 3D espaciales, animaciones de partículas y efectos visuales de pétalos flotantes.",
     image: "/Veldara3D.png",
-    videoUrl: "/Veldara3D.mp4",
+    videoUrl: "https://archive.org/download/app-delivery/Veldara3D.mp4",
     githubUrl: "https://github.com/CJ-REYES/Veldara3D"
   },
-    {
+  {
     id: "prod-04",
     title: "Timeless Wonders",
     category: "frontend",
@@ -58,7 +58,7 @@ const catalogItems: CatalogItem[] = [
     price: "Diseño Web",
     description: "Experiencia web inmersiva para museo de historia natural con exploración de fósiles, esquemas osteológicos interactivos, tipografía editorial y diseño científico minimalista.",
     image: "/TIMELESS-WONDERS.png",
-    videoUrl: "/TIMELESS-WONDERS-WEB.mp4",
+    videoUrl: "https://archive.org/download/app-delivery/TIMELESS-WONDERS-WEB.mp4",
     githubUrl: "https://github.com/CJ-REYES/TIMELESS-WONDERS"
   },
   {
@@ -69,10 +69,9 @@ const catalogItems: CatalogItem[] = [
     price: "Repositorio",
     description: "Plataforma Smart City con algoritmo de triage inteligente, app móvil en React Native, REST API en .NET 8 y base de datos geoespacial MySQL para incidentes municipales.",
     image: "/ViktorOddy.png",
-    videoUrl: "/ViktorOddy.mp4",
+    videoUrl: "https://archive.org/download/app-delivery/ViktorOddy.mp4",
     githubUrl: "https://github.com/CJ-REYES/CitizenReport"
   },
-
   {
     id: "prod-06",
     title: "AppDelivery",
@@ -81,7 +80,7 @@ const catalogItems: CatalogItem[] = [
     price: "Repositorio",
     description: "Plataforma web full stack de delivery que centraliza los flujos de 3 perfiles (cliente, comercio y repartidor) con React, TypeScript, ASP.NET Core, MariaDB, JWT y SignalR.",
     image: "/AppDelivery.png",
-    videoUrl: "/AppDelivery.mp4",
+    videoUrl: "https://archive.org/download/app-delivery/AppDelivery.mp4",
     githubUrl: "https://github.com/CJ-REYES/AppDelivery"
   }
 ];
@@ -89,10 +88,23 @@ const catalogItems: CatalogItem[] = [
 export default function CatalogPage() {
   const [activeCategory, setActiveCategory] = useState("all");
   const [selectedProject, setSelectedProject] = useState<CatalogItem | null>(null);
+  
+  // Ref para controlar el video de forma imperativa
+  const videoRef = useRef<HTMLVideoElement | null>(null);
 
   const filteredCatalog = activeCategory === "all" 
     ? catalogItems 
     : catalogItems.filter(item => item.category === activeCategory);
+
+  // Efecto para asegurar la reproducción automática cuando se abre el modal
+  useEffect(() => {
+    if (selectedProject && videoRef.current) {
+      videoRef.current.muted = true;
+      videoRef.current.play().catch((err) => {
+        console.warn("Autoplay bloqueado o demorado:", err);
+      });
+    }
+  }, [selectedProject]);
 
   return (
     <div className="w-full py-16 px-6 md:px-16 max-w-7xl mx-auto">
@@ -229,11 +241,13 @@ export default function CatalogPage() {
               <div className="grid grid-cols-1 lg:grid-cols-12 flex-1 overflow-hidden">
                 <div className="lg:col-span-7 bg-black flex items-center justify-center w-full h-full border-b lg:border-b-0 lg:border-r border-gray-800/80 relative overflow-hidden">
                   <video
+                    ref={videoRef}
                     src={selectedProject.videoUrl}
                     autoPlay
                     muted
                     loop
                     playsInline
+                    preload="auto"
                     className="w-full h-full object-cover absolute inset-0 pointer-events-none"
                   />
                 </div>
